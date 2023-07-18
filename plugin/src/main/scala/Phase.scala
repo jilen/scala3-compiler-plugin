@@ -1,4 +1,4 @@
-package derive
+package foo
 
 import dotty.tools.dotc.ast.Trees.*
 import dotty.tools.dotc.ast.tpd
@@ -39,10 +39,10 @@ class FooPhase() extends PluginPhase {
       ValDef(newValSym(owner).asTerm, Literal(Constant("foo")))
     val newRhs = tree.rhs match {
       case t: Template =>
-        println(t.constr.show)
         cpy.Template(t)(body = t.body :+ newValDef(tree.symbol))
     }
     val newTree = cpy.TypeDef(tree)(rhs = newRhs)
+    println(newTree.show)
     newTree
   }
 

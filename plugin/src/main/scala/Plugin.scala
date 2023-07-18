@@ -1,8 +1,8 @@
-package derive
+package foo
 
 import dotty.tools.dotc.plugins._
 
-class DerivePlugin extends StandardPlugin {
+class FooPlugin extends StandardPlugin {
   val name: String = "foo"
 
   override val description: String = "Foo description"
