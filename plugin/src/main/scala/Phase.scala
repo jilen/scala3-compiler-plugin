@@ -20,7 +20,7 @@ class FooPhase() extends PluginPhase {
   val phaseName = "FooPhase"
 
   override val runsAfter: Set[String] = Set(TyperPhase.name)
-  override val runsBefore: Set[String] = Set(Pickler.name)
+  override val runsBefore: Set[String] = Set(PostTyper.name)
 
   override def prepareForUnit(tree: Tree)(using ctx: Context): Context = {
     requiredClassRef("java.lang.String")
